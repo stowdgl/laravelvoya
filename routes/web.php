@@ -37,3 +37,7 @@ Route::get('/account','LoginController@account')->name('account');
 Route::get('/dashboard','AdminController@index')->name('dashboard');
 Route::post('/checkout','CartController@store')->name('saveorder');
 Route::post('/dashboard/order/{id}','AdminController@orderproc')->where('id','[0-9]+');
+
+Route::group(['prefix' => 'dashboard'], function () {
+    Voyager::routes();
+});

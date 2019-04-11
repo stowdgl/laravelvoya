@@ -53,6 +53,8 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
+
+       // return view('test',['req'=>file_get_contents("php://input")]);
         $cart = $request->session()->get('cart');
 
 
@@ -92,6 +94,7 @@ class CartController extends Controller
             }
 //,['product_qty'=>$item]
         }
+
        $request->session()->forget('cart');
         //return view('completed-order',['order'=>$order['id'],'cart'=>$orders]);
         return redirect('/');

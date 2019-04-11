@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/store.local.iml" filepath="$PROJECT_DIR$/.idea/store.local.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/storevoya.local.iml" filepath="$PROJECT_DIR$/.idea/storevoya.local.iml" />
     </modules>
   </component>
 </project>
