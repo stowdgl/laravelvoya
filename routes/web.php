@@ -36,7 +36,9 @@ Route::post('/dashboard/modify/proc','AdminController@modifyProdProc')->name('cr
 Route::get('/account','LoginController@account')->name('account');
 Route::get('/dashboard','AdminController@index')->name('dashboard');
 Route::post('/checkout','CartController@store')->name('saveorder');
-Route::post('/dashboard/order/{id}','AdminController@orderproc')->where('id','[0-9]+');
+Route::get('/dashboard/order/proc','AdminController@orderproc')->where('id','[0-9]+')->name('ordproc');
+Route::get('/dashboard/order/cancel','AdminController@ordercancel')->where('id','[0-9]+')->name('ordcancel');
+
 
 Route::group(['prefix' => 'dashboard'], function () {
     Voyager::routes();

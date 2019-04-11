@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Events\Dispatcher;
+use TCG\Voyager\Facades\Voyager;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -24,5 +27,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+        Voyager::addAction(\App\Actions\Process::class);
+        Voyager::addAction(\App\Actions\Cancel::class);
     }
 }

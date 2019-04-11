@@ -121,8 +121,25 @@ class AdminController extends Controller
 
     }
     public function orderproc(Request $request){
+        $id = $request['id'];
+        $ordproducts = Orders::with('products')->where('id',$request['id'])->get();
+        $order_products = [];
+        foreach ($ordproducts as $ordproduct) {
+            foreach ($ordproduct->products as $product) {
+                $order_products[] = $product->id;
+            }
+        }
+        $order_products = array_count_values($order_products);
+        foreach ($order_products as $key=>$order_product) {
+            $prd = Products::find($key);
+            $prd->items_available = (intval($prd->items_available)-intval($order_product));
+            $prd->save();
+        }
 
-        switch ($request['proc']){
+        $orders = Orders::find($request['id']);
+        $orders->order_status = 'Обработан';
+        $orders->save();
+        /*switch ($request['proc']){
             case 1:
                 $ordproducts = Orders::with('products')->where('id',$request['id'])->get();
                 $order_products = [];
@@ -150,8 +167,15 @@ class AdminController extends Controller
                 break;
             default:
                 break;
-        }
-        return redirect('/dashboard');
+        }*/
+        return redirect()->back();
+    }
+    public function ordercancel(Request $request){
+        $orders = Orders::find($request['id']);
+        $orders->products()->detach();
+        $orders->order_status ='Отменён';
+        $orders->save();
+        return redirect()->back();
     }
     public function deleteProd(Request $request){
         $id = $request['id'];
