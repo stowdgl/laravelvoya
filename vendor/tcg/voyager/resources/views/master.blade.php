@@ -62,8 +62,9 @@
 if (starts_with(app('VoyagerAuth')->user()->avatar, 'http://') || starts_with(app('VoyagerAuth')->user()->avatar, 'https://')) {
     $user_avatar = app('VoyagerAuth')->user()->avatar;
 } else {
-    $user_avatar = Voyager::image(app('VoyagerAuth')->user()->avatar);
+    $user_avatar = app('VoyagerAuth')->user()->avatar;
 }
+//ТУТ БЫЛ Я
 ?>
 
 <div class="app-container">

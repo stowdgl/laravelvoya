@@ -102,7 +102,7 @@
                                 </thead>
                                 <tbody>
                                 @foreach($dataTypeContent as $data)
-                                    <tr>
+                                    <tr class="tabletr">
                                         @can('delete',app($dataType->model_name))
                                             <td>
                                                 <input type="checkbox" name="row_id" id="checkbox_{{ $data->getKey() }}" value="{{ $data->getKey() }}">
@@ -238,7 +238,7 @@
                                                     @endif
                                                 @else
                                                     @include('voyager::multilingual.input-hidden-bread-browse')
-                                                    <span>{{ $data->{$row->field} }}</span>
+                                                    <span class="ordstatus">{{ $data->{$row->field} }}</span>
                                                 @endif
                                             </td>
                                         @endforeach
@@ -315,7 +315,46 @@
         <script src="{{ voyager_asset('lib/js/dataTables.responsive.min.js') }}"></script>
     @endif
     <script>
+        function funcProcessed(th){
+            th.style.backgroundColor = '#a5d9b1';
+        }
+        function funccProcessed(th){
+            th.style.backgroundColor = '#c3e6cb';
+        }
+        function funcPending(th){
+            th.style.backgroundColor = '#99caff';
+        }
+        function funccPending(th){
+            th.style.backgroundColor = '#b8daff';
+        }
+        function funcCancelled(th){
+            th.style.backgroundColor = '#f0a8af';
+        }
+        function funccCancelled(th){
+            th.style.backgroundColor = '#f5c6cb';
+        }
         $(document).ready(function () {
+            var ordstatus = document.getElementsByClassName('ordstatus');
+            var tabletr = document.getElementsByClassName('tabletr');
+            for (var i = 0; i<ordstatus.length;i++){
+                if (ordstatus[i].innerText==='Обработан'){
+                    tabletr[i].setAttribute('onmouseover','funcProcessed(this)');
+                    tabletr[i].setAttribute('onmouseout','funccProcessed(this)');
+                    tabletr[i].style.backgroundColor = '#c3e6cb';
+
+                }
+                if (ordstatus[i].innerText==='Ожидает обработки'){
+                    tabletr[i].setAttribute('onmouseover','funcPending(this)');
+                    tabletr[i].setAttribute('onmouseout','funccPending(this)');
+                    tabletr[i].style.backgroundColor = '#b8daff';
+                }
+                if (ordstatus[i].innerText==='Отменён'){
+                    tabletr[i].setAttribute('onmouseover','funcCancelled(this)');
+                    tabletr[i].setAttribute('onmouseout','funccCancelled(this)');
+                    tabletr[i].style.backgroundColor = '#f5c6cb';
+                }
+            } 
+            
             
                     @if (!$dataType->server_side)
             var table = $('#dataTable').DataTable({!! json_encode(
