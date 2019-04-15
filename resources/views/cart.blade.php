@@ -107,7 +107,6 @@ Lower Header Section
             </div>
             <div class="span4 alignR">
                 <p><br> <strong> Поддержка (24/7) :  <a href="tel:{{env('SUPP_PHONE')}}">{{env('SUPP_PHONE')}} </a></strong><br><br></p>
-                <span class="btn btn-warning btn-mini">$</span>
             </div>
         </div>
     </header>

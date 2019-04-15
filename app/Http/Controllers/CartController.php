@@ -23,7 +23,6 @@ class CartController extends Controller
 
         $cart = $request->session()->get('cart');
         //$cart1 = var_dump($cart);
-        var_dump($cart);
         $products = [];
         if (isset($cart)) {
             foreach ($cart as $item) {

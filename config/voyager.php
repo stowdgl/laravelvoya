@@ -14,8 +14,8 @@ return [
         'add_default_role_on_register' => true,
         'default_role'                 => 'user',
         'namespace'                    => null,
-        'default_avatar'               => '/users/default.png',
-        'redirect'                     => '/admin',
+        'default_avatar'               => '/img/default.png',
+        'redirect'                     => '/dashboard',
     ],
 
     /*
@@ -198,7 +198,7 @@ return [
     ],
 
     'googlemaps' => [
-         'key'    => env('GOOGLE_MAPS_KEY', ''),
+         'key'    => env('GOOGLE_MAPS_KEY', 'AIzaSyChGoej5XKIutU4QkLz1Z_xcmIFBRVb_cQ'),
          'center' => [
              'lat' => env('GOOGLE_MAPS_DEFAULT_CENTER_LAT', '32.715738'),
              'lng' => env('GOOGLE_MAPS_DEFAULT_CENTER_LNG', '-117.161084'),
