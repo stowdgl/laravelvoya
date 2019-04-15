@@ -18,7 +18,7 @@ Lower Header Section
                             <div class="thumbnail">
                                 <a href="/product/{{$product->id}}" class="overlay"></a>
                                 <a class="zoomTool" href="/product/{{$product->id}}" title="add to cart"><span class="icon-search"></span>VIEW</a>
-                                <a href="/product/{{$product->id}}"><img src="{{ URL::asset($product->product_img)}}" alt="" width="207" height="268"></a>
+                                <a href="/product/{{$product->id}}"><img width="425" height="295" src="{{ URL::asset($product->product_img)}}" alt="" width="207" height="268"></a>
                                 <div class="caption cntr">
                                     <p>{{$product->title}}</p>
 
