@@ -23,14 +23,14 @@ Lower Header Section
                             <div class="thumbnail">
                                 <a href="/product/{{$product->id}}" class="overlay"></a>
                                 <a class="zoomTool" href="/product/{{$product->id}}" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                                <a href="/product/{{$product->id}}"><img src="{{URL::asset($product->product_img)}}" alt="" width="200" height="300"></a>
+                                <a href="/product/{{$product->id}}"><img width="425" height="295" src="{{URL::asset($product->product_img)}}" alt=""></a>
                                 <div class="caption cntr">
                                     <p>{{$product->title}}</p>
                                     <p><strong> @foreach($product->prices as $price){{'$'.$price['price']}}@endforeach</strong></p>
                                     <form action="/addtocart" method="post">
                                         @csrf
                                         <input type="hidden" value="{{$product->id}}" name="id">
-                                        <h4>@if($product->items_available==0) <button class="shopBtn" href="#" title="" style="background-color:#a39d9d;" disabled="disabled"> NOT AVAILABLE </button>@else<button type="submit" class="shopBtn" title="add to cart">Add to cart</button> @endif</h4>
+                                        <h4>@if($product->items_available==0) <button class="shopBtn" href="#" title="" style="background-color:#a39d9d;" disabled="disabled"> НЕ ДОСТУПНО </button>@else<button type="submit" class="shopBtn" title="add to cart">Добавить в корзину</button> @endif</h4>
                                     </form>
                                     <div class="actionList">
                                     </div>
