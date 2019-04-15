@@ -9,9 +9,11 @@ use Illuminate\Http\Request;
 class CartController extends Controller
 {
     public function add(Request $request){
+        //$cart = $request->session()->forget('cart');
+        $request->session()->push('cart', [$request['qty'] => $request['id']]);
+        // $cart = $request->session()->get('cart');
 
-       $request->session()->push('cart',$request['id']);
-       return redirect()->back();
+        return redirect()->back();
     }
     /**
      * Display a listing of the resource.
@@ -23,15 +25,17 @@ class CartController extends Controller
 
         $cart = $request->session()->get('cart');
         //$cart1 = var_dump($cart);
+        //var_dump($cart);
         $products = [];
         if (isset($cart)) {
-            foreach ($cart as $item) {
+            foreach ($cart as $key=>$item) {
                 $products[] = Products::with('categories', 'prices')->where('id', $item)->get();
             }
         }
         $prodcount= count($products);
         $products1= Products::with('categories','prices')->orderBy('created_at')->get();
-        return view('cart',['cart'=>$cart,'products'=>$products,'prodcount'=>$prodcount,'products1'=>$products1,'var'=>var_dump($cart)]);
+
+        return view('cart',['cart'=>$cart,'products'=>$products,'prodcount'=>$prodcount,'products1'=>$products1]);
     }
 
     /**
@@ -53,16 +57,16 @@ class CartController extends Controller
     public function store(Request $request)
     {
 
-       // return view('test',['req'=>file_get_contents("php://input")]);
+        // return view('test',['req'=>file_get_contents("php://input")]);
         $cart = $request->session()->get('cart');
 
 
         //return view('test',['qty'=>$cart]);
         // array(2) { qty[0]=> string(1) id"4" [1]=> string(1) "1" }
 
-      //  return view('test',['qty'=>$request['qty']]);
-       // array(2) { id[4]=> string(1) qty"2" [1]=> string(1) "1" }
-       $this->validate(request(),[
+        //  return view('test',['qty'=>$request['qty']]);
+        // array(2) { id[4]=> string(1) qty"2" [1]=> string(1) "1" }
+        $this->validate(request(),[
             'fio'=>'required',
             'city'=>'required',
             'email'=>'required|email',
@@ -94,7 +98,7 @@ class CartController extends Controller
 //,['product_qty'=>$item]
         }
 
-       $request->session()->forget('cart');
+        $request->session()->forget('cart');
         //return view('completed-order',['order'=>$order['id'],'cart'=>$orders]);
         return redirect('/');
     }
@@ -141,21 +145,26 @@ class CartController extends Controller
      */
     public function destroy(Request $request)
     {
+
         $cart = $request->session()->get('cart');
-       // var_dump($cart);
+        // var_dump($cart);
         $request->session()->forget('cart');
-        foreach ($cart as $key=>$item) {
-            if ($key==$request['id']){
-                $request->session()->push('cart',$item);
+        foreach ($cart as $cartitem) {
+            foreach ($cartitem as $key=>$item) {
+                //echo "<script>console.log($item)</script>";
+                if ($item==$request['id']){
 
-            }else{
 
+                }else{
+                    $request->session()->push('cart',[$key=>$item]);
+                }
             }
+
         }
 
 //redirect()->back()
         //$request->session()->pull('cart',$request['delid']);
-     //   $request->session()->flash('cart');
-      return redirect('/cart');
+        //   $request->session()->flash('cart');
+        return redirect('/cart');
     }
 }
