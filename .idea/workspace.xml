@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5abddfeb-6759-4791-a7cc-f996921daacc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,8 +48,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/cart.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="128" column="81" selection-start-line="128" selection-start-column="81" selection-end-line="128" selection-end-column="81" />
+            <state relative-caret-position="437">
+              <caret line="129" lean-forward="true" selection-start-line="129" selection-end-line="129" />
             </state>
           </provider>
         </entry>
@@ -215,7 +214,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="770" />
     <option name="y" value="89" />
     <option name="width" value="974" />
@@ -326,18 +325,17 @@
       <workItem from="1554979802765" duration="29000" />
       <workItem from="1554979833261" duration="7471000" />
       <workItem from="1555058796027" duration="18772000" />
-      <workItem from="1555309481641" duration="18720000" />
+      <workItem from="1555309481641" duration="19280000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94125000" />
+    <option name="totallyTimeSpent" value="94685000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22654584" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22654584" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -350,7 +348,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3411371" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3411371" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32998884" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -682,8 +680,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/cart.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="128" column="81" selection-start-line="128" selection-start-column="81" selection-end-line="128" selection-end-column="81" />
+        <state relative-caret-position="437">
+          <caret line="129" lean-forward="true" selection-start-line="129" selection-end-line="129" />
         </state>
       </provider>
     </entry>
