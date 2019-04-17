@@ -27,7 +27,9 @@
     <link rel="shortcut icon" href="{{ URL::asset('ico/favicon.ico')}}">
 </head>
 <body>
-
+<div id="preloader">
+    <div class="dws-progress-bar"></div>
+</div>
 <!--
 	Upper Header Section
 -->
@@ -187,7 +189,7 @@
 
                 return response.json();
             }).then(function (resj) {
-                console.log(resj)
+
                 var dlr = document.getElementById('dollar');
                 var eur = document.getElementById('euro');
                 var rub = document.getElementById('ruble');

@@ -229,6 +229,7 @@ Lower Header Section
                             @foreach(array_values(array_unique($productsPrices)) as $qty)
                                 <?php
                                 $pricePerItem[] = $qty*array_values(array_count_values($productsTitles))[$i];
+
                                 ?>
                                 <?php $i++;?>
                             @endforeach
